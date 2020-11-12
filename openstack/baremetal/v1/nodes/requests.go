@@ -93,8 +93,8 @@ type ListOpts struct {
 	// Filter the list with the specified fault.
 	Fault string `q:"fault"`
 
-	// One or more fields to be returned in the response.
-	Fields []string `q:"fields"`
+	// Comma separated list of fields to be returned in the response.
+	Fields string `q:"fields"`
 
 	// Requests a page size of items.
 	Limit int `q:"limit"`

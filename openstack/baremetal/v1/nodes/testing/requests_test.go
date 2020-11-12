@@ -75,7 +75,7 @@ func TestListNodes(t *testing.T) {
 func TestListOpts(t *testing.T) {
 	// Detail cannot take Fields
 	opts := nodes.ListOpts{
-		Fields: []string{"name", "uuid"},
+		Fields: "name,uuid",
 	}
 
 	_, err := opts.ToNodeListDetailQuery()
@@ -83,7 +83,7 @@ func TestListOpts(t *testing.T) {
 
 	// Regular ListOpts can
 	query, err := opts.ToNodeListQuery()
-	th.AssertEquals(t, query, "?fields=name&fields=uuid")
+	th.AssertEquals(t, "?fields=name%2Cuuid", query)
 	th.AssertNoErr(t, err)
 }
 
